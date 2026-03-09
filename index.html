@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perpetual Machines — Coming Soon</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Subtle animated background */
+  body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(56, 189, 248, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(168, 85, 247, 0.04) 0%, transparent 50%);
+    animation: drift 20s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes drift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-5%, 3%) rotate(3deg); }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  /* Logo / Brand */
+  .logo-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    animation: spin 8s linear infinite;
+  }
+
+  .orbit-ring:nth-child(1) {
+    width: 64px; height: 64px; top: 0; left: 0;
+  }
+  .orbit-ring:nth-child(2) {
+    width: 48px; height: 48px; top: 8px; left: 8px;
+    border-color: rgba(255,255,255,0.08);
+    animation-duration: 12s;
+    animation-direction: reverse;
+  }
+  .orbit-ring:nth-child(3) {
+    width: 32px; height: 32px; top: 16px; left: 16px;
+    border-color: rgba(255,255,255,0.05);
+    animation-duration: 6s;
+  }
+
+  .core-dot {
+    position: absolute;
+    width: 6px; height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px rgba(255,255,255,0.4);
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .brand-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
+
+  .coming-soon {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    line-height: 1.1;
+  }
+
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 0 auto 2.5rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 0.75rem;
+  }
+
+  .vision {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .mission {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  .mission em {
+    color: rgba(255,255,255,0.75);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .footer {
+    margin-top: 4rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* Fade-in animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.3s; }
+  .fade-in:nth-child(3) { animation-delay: 0.5s; }
+  .fade-in:nth-child(4) { animation-delay: 0.6s; }
+  .fade-in:nth-child(5) { animation-delay: 0.7s; }
+  .fade-in:nth-child(6) { animation-delay: 0.8s; }
+  .fade-in:nth-child(7) { animation-delay: 0.9s; }
+  .fade-in:nth-child(8) { animation-delay: 1.0s; }
+  .fade-in:nth-child(9) { animation-delay: 1.2s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo-icon fade-in">
+    <div class="orbit-ring"></div>
+    <div class="orbit-ring"></div>
+    <div class="orbit-ring"></div>
+    <div class="core-dot"></div>
+  </div>
+
+  <div class="brand-name fade-in">Perpetual Machines</div>
+
+  <div class="coming-soon fade-in">Coming Soon</div>
+
+  <div class="divider fade-in"></div>
+
+  <div class="section-label fade-in">Vision</div>
+  <p class="vision fade-in">
+    To redefine what it means to build — creating products, systems, and human lives that sustain themselves, evolve on their own, and outlast the hands that made them.
+  </p>
+
+  <div class="section-label fade-in">Mission</div>
+  <p class="mission fade-in">
+    Perpetual Machines designs technology and human experiences that mirror nature's most enduring principle: <em>systems that fuel their own growth.</em> We build products that don't just work — <em>they evolve and endure.</em> And people who don't just live — <em>they flourish.</em>
+  </p>
+
+  <div class="footer fade-in">© 2026 Perpetual Machines</div>
+
+</div>
+
+</body>
+</html>
